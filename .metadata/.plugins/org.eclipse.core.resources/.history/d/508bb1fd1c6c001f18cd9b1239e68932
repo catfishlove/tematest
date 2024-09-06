@@ -1,0 +1,47 @@
+package com.example.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.memberset.MemberDto;
+import com.example.repository.MemberDao;
+import com.example.repository.TrainerDao;
+
+@Service
+public class MemberSerivceImpl implements MemberService{
+	
+	@Autowired private MemberDao memberdao;
+	@Autowired private TrainerDao trainerdao;
+	
+	
+	@Override
+	public void createMember(MemberDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateMember(int memberNum, MemberDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteMember(int memberNum) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void linkTrainerToMember(int memberNum, String trainerId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void unlinkTrainerToMember(int memberNum) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

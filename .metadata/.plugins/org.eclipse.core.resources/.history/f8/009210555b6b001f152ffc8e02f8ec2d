@@ -1,0 +1,17 @@
+package com.example.repository;
+
+import java.util.List;
+
+import com.example.memberset.MemberDto;
+import com.example.memberset.TrainerDto;
+
+public interface MemberDao {
+	
+	public void create(MemberDto data);
+	//특정 ID로 데이터를 조회
+	public UserDto getData(int UserNum);
+	public List<MemberDto> getList(MemberDto dto);
+	public void update (int memberNum, MemberDto data);
+	public void delete (int memberNum);
+	public List<TrainerDto> getList2();
+}

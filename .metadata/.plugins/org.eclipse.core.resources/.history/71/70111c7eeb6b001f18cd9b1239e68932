@@ -1,0 +1,11 @@
+package com.example.service;
+
+import com.example.memberset.MemberDto;
+
+public class MemberService {
+	public void addMember(MemberDto dto);
+	//사용자 추가 메소드
+	public void updateMember(int memberNum, MemberDto dto);
+	//멤버 수정 메소드
+	public void deleteMember(int memberNum);
+}

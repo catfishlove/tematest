@@ -1,0 +1,46 @@
+package com.example.repository;
+
+import java.util.List;
+
+import com.example.memberset.MemberDto;
+import com.example.memberset.TrainerDto;
+
+public class MemberDaoImpl implements MemberDao{
+
+	@Override
+	public void create(MemberDto data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public MemberDto getData(int memberNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<MemberDto> getList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(int memberNum, MemberDto data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int memberNum) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<TrainerDto> getList2() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

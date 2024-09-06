@@ -1,0 +1,9 @@
+package com.example.memberset;
+
+public class MemberDto {
+	private Long memberNum;
+	private Long trainerNum;
+	private Double memberHeight;
+	private Double MemberWeight;
+
+}

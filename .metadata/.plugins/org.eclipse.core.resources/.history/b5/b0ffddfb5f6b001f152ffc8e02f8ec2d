@@ -1,0 +1,46 @@
+package com.example.service;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.memberset.TrainerDto;
+import com.example.repository.TrainerDao;
+
+public class TrainerServiceImpl implements TrainerDao{
+	
+	@Autowired private SqlSession session;
+
+	@Override
+	public void create(TrainerDto dto) {
+		
+		session.insert("trainer.insert", dto);
+		
+	}
+
+	@Override
+	public TrainerDto getData(int userNum) {
+		
+		return session.selectOne("trainer.getData", userNum);
+	}
+
+	@Override
+	public List<TrainerDto> getList(TrianerDto dto) {
+		// TODO Auto-generated method stub
+		return session.selectList("trainer.getList", dto);
+	}
+
+	@Override
+	public void update(int TrainerNum, TrainerDto data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int TrainerNum) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
