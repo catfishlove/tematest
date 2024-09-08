@@ -11,4 +11,6 @@ public interface TrainerDao {
 	public List<TrainerDto> getList(TrainerDto dto);
 	public void update(int trainerNum, TrainerDto dto);
 	public void delete(int trainerNum);
+	public int getTrinerNum(int user_num);
+	public TrainerDto getInfo(int triner_num);
 }

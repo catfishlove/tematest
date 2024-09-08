@@ -45,4 +45,16 @@ public class TrainerServiceImpl implements TrainerDao{
 		
 	}
 
+	@Override
+	public int getTrinerNum(int user_num) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public TrainerDto getInfo(int triner_num) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

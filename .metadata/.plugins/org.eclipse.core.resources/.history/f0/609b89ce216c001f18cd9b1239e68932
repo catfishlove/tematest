@@ -1,0 +1,19 @@
+package com.example.service;
+
+import com.example.memberset.MemberDto;
+
+public interface MemberService {
+	
+		public void createMember(MemberDto dto);
+		//사용자 추가 메소드
+		public void updateMember(int memberNum, MemberDto dto);
+		//멤버 수정 메소드
+		public void deleteMember(int memberNum);
+		//멤버 삭제 메소드 
+		public void linkTrainerToMember(int memberNum, String trainerId);
+		//멤버와 트레이너 연동
+		public void unlinkTrainerToMember(int memberNum);
+		//멤버와 트레이너 연동 해제
+		
+}
+

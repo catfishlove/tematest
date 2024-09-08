@@ -52,13 +52,14 @@ public class MemberDaoImpl implements MemberDao{
 		
 		return session.selectList("trainer.getList", dto);
 	}
-	*/
+	
 	
 	@Override
 	public boolean trainerLinked(int memberNum) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	*/
 
 	@Override
 	public void linkTrainer(int memberNum, String TrainerId) {
@@ -66,10 +67,5 @@ public class MemberDaoImpl implements MemberDao{
 		
 	}
 
-	@Override
-	public void unlinkTrainer(int memberNum) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

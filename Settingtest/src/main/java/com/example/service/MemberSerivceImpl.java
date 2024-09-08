@@ -36,15 +36,17 @@ public class MemberSerivceImpl implements MemberService{
 	}
 
 	@Override
-	public void linkTrainerToMember(int memberNum, String trainerId) {
-		// TODO Auto-generated method stub
-		
+	public void linkTrainerToMember(int memberNum, String trainerNum) {
+		 
+		memberDao.linkTrainer(memberNum, trainerNum);
 	}
 
 	@Override
-	public void unlinkTrainerToMember(int memberNum) {
-		// TODO Auto-generated method stub
+	public void updateMemberInfo(MemberDto memberDto) {
+		
+		memberDao.update(memberDto.getMemberNum(), memberDto);
 		
 	}
+
 
 }

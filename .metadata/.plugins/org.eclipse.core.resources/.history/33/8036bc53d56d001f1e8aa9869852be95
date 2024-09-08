@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+
+	<!-- 새로운 멤버 추가 -->
+	<insert id="create" parameterType="com.example.memberset.MemberDto">
+		INSERT INTO memberInfo_tbl (member_num, trainer_num, member_height, member_weight, member_gender, plan, weeklyplan)
+		VALUES(#{memberNum}, #{trainerNum}, #{memberHeight}, #{memberWeight}, #{memberGender}, #{plan}, #{weeklyplan})
+	</insert>
+
+	<!-- 특정 멤버 정보 조회 -->
+	<select id="getData" parameterType="int" resultType="com.example.memberset.UserDto">
+	SELECT member_num, member_height, member_weight, member_gender, plan, weeklyplan
+	FROM memberInfo_tbl
+	WHERE member_num=#{userNum}		
+	</select>
+	
+	<!-- 특정 멤버 업데이트 -->
+	<update id="update" parameterType="com.example.memberset.MemberDto">
+	UPDATE memberInfo_tbl
+	SET member_height = #{memberHeight}, member_weight = #{memberWeight}, member_gender = #{memberGender}, 
+		plan = #{plan}, weeklyplan = #{weeklyplan}
+	WHERE member_num = #{memberNum}	
+	</update>
+	
+	<!-- 특정 멤버 삭제 -->
+	<delete id="delete" parameterType="int">
+	DELETE FROM memberInfo_tbl 
+	WHERE member_num = #{memberNum}
+	</delete>
+	
+	<!-- 일반 회원과 트레이너의 연동 -->
+	<!-- 일반 회원이 트레이너 ID를 검색하여 선택해서 연동하는 기능을 만들어야 하는데 이 부분이 너무 어려움...
+	 trainerNum을 가져와서 서로 달력이나 식단 일정 같은 것을 공유하면서 함께 수정하는 형식으로 진행하려고 하는데... -->
+	<update id="linkTrinaer" parameterType="map">
+	UPDATE memberInfo_tbl
+	SET trainer_num = #{trainerNum}
+	WHERE member_num = #{memberNum}
+	</update>
+	
+
+
+</mapper>
