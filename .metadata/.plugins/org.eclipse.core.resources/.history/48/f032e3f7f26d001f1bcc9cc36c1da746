@@ -1,0 +1,51 @@
+package com.example.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.memberset.MemberDto;
+import com.example.service.MemberService;
+
+@Controller
+public class MemberController {
+	
+	@Autowired
+	private MemberService memberService;
+	
+	//회원 가입 후에 로그인 상태에서 기본 초기 설정 페이지로 이동하기
+	@GetMapping("/memberlnfo/setup")
+		public String showSetupPage(Model model) {
+		//현재 로그인 된 회원 정보를 가져와서 model에 추가하기
+		MemberDto member = memberService.UserService();
+		//userservice를 다른 사람이 만들어서 내가 받지 못했는데 저런 식으로 받아올 수 있는건지
+		//모르겠음. 
+		model.addAttribute("member", member);
+		
+	}
+	
+	//초기 설정 값 저장하기
+	@PostMapping("/memberlnfo/{member_num}/setup")
+	public String saveSetup (@ModelAttribute MemberDto memberDto, Model model) {
+		memberService.updateMemberInfo(memberDto);
+		return "redirect:/member/{member_num}/connect_trainer";
+	}
+	
+	//user_id를 입력해서 트레이너와 연동하는 페이지
+	 @GetMapping("/member/enterUserId")
+	    public String showUserIdPage() {
+	        return "enterUserId"; // user_id 입력 화면
+	    }
+	 
+	 //user_id입력해서 연동하기 
+	  @PostMapping("/member/enterUserId")
+	    public String handleUserId(@ModelAttribute("user_id") String userId, Model model) {
+	        // user_id를 바탕으로 트레이너 정보 연동 등 필요한 로직 처리
+	        memberService.linkTrainer(userId);
+	        return "redirect:/main"; // 메인 화면으로 이동
+	    }
+
+}

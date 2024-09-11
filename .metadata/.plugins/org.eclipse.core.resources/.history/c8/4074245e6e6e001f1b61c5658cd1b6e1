@@ -1,0 +1,3 @@
+spring.application.name=Settingtest
+
+server.port=8888

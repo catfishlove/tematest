@@ -3,7 +3,7 @@
 <mapper namespace="member">
 
 	<!-- 새로운 멤버 추가 -->
-	<insert id="create" parameterType="com.example.memberset.MemberDto">
+	<insert id="create" parameterType="com.example.setting.memberset.MemberDto">
 	    <selectKey keyProperty="memberNum" resultType="int" order="BEFORE">
 	     SELECT NEXTVAL('member_seq')
 	    </selectKey>
@@ -20,10 +20,10 @@
 	</select> -->
 	
 	<!-- 특정 멤버 업데이트 -->
-	<update id="update" parameterType="com.example.memberset.MemberDto">
+	<update id="update" parameterType="com.example.setting.memberset.MemberDto">
 	UPDATE memberInfo_tbl
 	SET member_height = #{memberHeight}, member_weight = #{memberWeight}, member_gender = #{memberGender}, 
-		plan = #{plan}, weeklyplan = #{weeklyplan}
+		plan = #{plan}, weeklyPlan = #{weeklyPlan}
 	WHERE member_num = #{memberNum}	
 	</update>
 	
@@ -38,7 +38,7 @@
 	 trainerNum을 가져와서 서로 달력이나 식단 일정 같은 것을 공유하면서 함께 수정하는 형식으로 진행하려고 하는데... -->
 	<update id="linkTrinaer" parameterType="map">
 	UPDATE memberInfo_tbl
-	SET trainer_num = #{trainerNum}
+	SET user_id = #{trainerNum}
 	WHERE member_num = #{memberNum}
 	</update>
 	

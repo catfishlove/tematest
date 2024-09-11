@@ -1,0 +1,28 @@
+package com.example.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.memberset.MemberDto;
+import com.example.memberset.TrainerDto;
+import com.example.service.TrainerService;
+
+@Controller
+public class TrainerController {
+	@Autowired
+	private TrainerService trainerService;
+	
+	  // 초기 설정 화면에서 트레이너 정보 입력
+    @PostMapping("/trianerInfo/{trainer_num}/setup")
+    public String setupTrainer(@ModelAttribute TrainerDto trainerDto) {
+        // 트레이너 정보를 저장
+        trainerService.createTrainer (trainerDto);
+        // 메인 화면으로 리다이렉트
+        return "redirect:/main"; 
+    }
+	
+	
+}

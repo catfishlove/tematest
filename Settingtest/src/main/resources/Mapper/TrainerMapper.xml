@@ -3,7 +3,7 @@
 <mapper namespace="trainer">
 
 	<!-- 새로운 트레이너 등록 -->
-	<insert id="create" parameterType="com.example.memberset.TrainerDto">
+	<insert id="create" parameterType="com.example.setting.memberset.TrainerDto">
 	    <!-- INSERT 이후에 자동 증가된 trainer_num 값을 가져와서 TrainerDto 객체에 설정 -->
 	    <selectKey keyProperty="trainerNum" resultType="int" order="AFTER">
 	        SELECT LAST_INSERT_ID()
@@ -14,7 +14,7 @@
 	</insert>
 	
 	<!-- 트레이너 업데이트 -->
-	<update id="update" parameterType="com.example.memberset.TrainerDto">
+	<update id="update" parameterType="com.example.setting.memberset.TrainerDto">
 		UPDATE trainerInfo_tbl
 		SET trainer_insta=#{trainerInsta},trainer_intro=#{trainerIntro}, gym_link=#{gymLink},gym_name={#gymName}
 		WHERE trainer_num=#{trainer_num}
@@ -28,14 +28,14 @@
 	</delete>
 	
 	<!-- 특정 트레이너 번호 조회 -->
-	<select id="selectTrinerNumByUserId" parameterType="string" resultType="int">
+	<select id="selectTrinerNum" parameterType="string" resultType="int">
 	    SELECT trainer_num
 	    FROM trainer_tbl
 	    WHERE user_id = #{userID}
 	</select>
 	
 	<!-- 트레이너 정보 조회 -->
-	<select id="selectTrinerInfo" parameterType="int" resultType="com.example.memberset.TrainerDto">
+	<select id="selectTrinerInfo" parameterType="int" resultType="com.example.setting.memberset.TrainerDto">
 	SELECT trainer_insta, trainer_intro, gym_link, gym_name
 	FROM trainerInfo_tbl
 	WHERE trainer_num = #{trainerNum}
